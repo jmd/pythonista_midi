@@ -47,7 +47,7 @@ class MIDIInstrument:
         AVAudioSession = ObjCClass('AVAudioSession')
         error = ctypes.c_void_p(0)
         session = AVAudioSession.sharedInstance()
-        category = session.setCategory('AVAudioSessionCategoryPlayAndRecord', error=ctypes.pointer(error))
+        category = session.setCategory('AVAudioSessionCategoryPlayback', error=ctypes.pointer(error))
         if error:
             raise Exception('error setting up category')
         session.setActive(True, error=ctypes.pointer(error))
